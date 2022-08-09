@@ -11,6 +11,9 @@
 		265744E028A1CB56000CE0F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265744DF28A1CB56000CE0F9 /* ContentView.swift */; };
 		265744E228A1CB58000CE0F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 265744E128A1CB58000CE0F9 /* Assets.xcassets */; };
 		265744E528A1CB58000CE0F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 265744E428A1CB58000CE0F9 /* Preview Assets.xcassets */; };
+		265744EE28A1D115000CE0F9 /* ScreenshotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265744ED28A1D115000CE0F9 /* ScreenshotManager.swift */; };
+		265744F028A1D446000CE0F9 /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265744EF28A1D446000CE0F9 /* Screenshot.swift */; };
+		265744F228A293DE000CE0F9 /* ScreenshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265744F128A293DE000CE0F9 /* ScreenshotView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,10 @@
 		265744E128A1CB58000CE0F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		265744E428A1CB58000CE0F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		265744E628A1CB58000CE0F9 /* ScreenScraps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScreenScraps.entitlements; sourceTree = "<group>"; };
+		265744EC28A1CFE1000CE0F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		265744ED28A1D115000CE0F9 /* ScreenshotManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotManager.swift; sourceTree = "<group>"; };
+		265744EF28A1D446000CE0F9 /* Screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
+		265744F128A293DE000CE0F9 /* ScreenshotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +59,12 @@
 		265744DC28A1CB56000CE0F9 /* ScreenScraps */ = {
 			isa = PBXGroup;
 			children = (
+				265744EC28A1CFE1000CE0F9 /* Info.plist */,
 				265744DD28A1CB56000CE0F9 /* ScreenScrapsApp.swift */,
 				265744DF28A1CB56000CE0F9 /* ContentView.swift */,
+				265744F128A293DE000CE0F9 /* ScreenshotView.swift */,
+				265744EF28A1D446000CE0F9 /* Screenshot.swift */,
+				265744ED28A1D115000CE0F9 /* ScreenshotManager.swift */,
 				265744E128A1CB58000CE0F9 /* Assets.xcassets */,
 				265744E628A1CB58000CE0F9 /* ScreenScraps.entitlements */,
 				265744E328A1CB58000CE0F9 /* Preview Content */,
@@ -139,8 +150,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				265744F228A293DE000CE0F9 /* ScreenshotView.swift in Sources */,
 				265744E028A1CB56000CE0F9 /* ContentView.swift in Sources */,
+				265744F028A1D446000CE0F9 /* Screenshot.swift in Sources */,
 				265744DE28A1CB56000CE0F9 /* ScreenScrapsApp.swift in Sources */,
+				265744EE28A1D115000CE0F9 /* ScreenshotManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,11 +286,13 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ScreenScraps/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ScreenScraps/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.halz.ScreenScraps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -297,11 +313,13 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ScreenScraps/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ScreenScraps/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.halz.ScreenScraps;
 				PRODUCT_NAME = "$(TARGET_NAME)";

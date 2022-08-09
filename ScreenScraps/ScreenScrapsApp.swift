@@ -10,8 +10,15 @@ import SwiftUI
 @main
 struct ScreenScrapsApp: App {
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+        MenuBarExtra {
+            VStack {
+                ContentView()
+            }
+        } label: {
+            Image(systemName: "camera.metering.partial")
+                .onAppear {
+                    ScreenshotManager.shared.configure()
+                }
+        }.menuBarExtraStyle(.window)
     }
 }
