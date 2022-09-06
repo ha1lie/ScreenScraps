@@ -7,6 +7,7 @@
 
 import Foundation
 import AppKit
+import SwiftUI
 
 class ScreenshotManager: ObservableObject {
     public static let shared: ScreenshotManager = ScreenshotManager()
@@ -54,6 +55,11 @@ class ScreenshotManager: ObservableObject {
     
     //MARK: Folder manipulation
     
+    public func canRenameTo(_ name: String) -> Bool {
+        guard name != "" else { return false }
+        return !self.screenshots.contains(where: { $0.name == name })
+    }
+    
     public func renameScreenshot(_ screenshot: Screenshot, to name: String) {
         guard self.screenshots.contains(where: { $0 == screenshot }) else { return }
         guard let folderURL = self.screenshotFolderURL else { return }
@@ -72,32 +78,43 @@ class ScreenshotManager: ObservableObject {
         } catch {
             success = false
             print("Failed to move the screenshot!")
+            print("Error: \(error.localizedDescription)")
         }
         
         if success {
             // Change everything!
             renamed.location = newLoc
-            self.screenshots.removeAll(where: { $0 == screenshot })
-            self.screenshots.append(renamed)
+            DispatchQueue.main.async {
+                self.screenshots.removeAll(where: { $0 == screenshot })
+                self.screenshots.append(renamed)
+            }
         }
     }
     
     /// Delete a screenshot from the folder, also removes from list
     /// - Parameter screenshot: Screenshot to delete
     public func deleteScreenshot(_ screenshot: Screenshot) {
-        print("[-] UNFINISHED. Delete screenshot")
+        self.screenshots.removeAll(where: { $0 == screenshot })
+        if let loc = screenshot.location {
+            try? FileManager.default.removeItem(at: loc)
+        }
     }
     
     /// Copy a screenshot image to your clipboard
     /// - Parameter screenshot: Screenshot to copy
     public func copyScreenshot(_ screenshot: Screenshot) {
-        print("[-] UNFINISHED. Copy to clipboard")
+        if let loc = screenshot.location, let d = try? Data(contentsOf: loc) {
+            NSPasteboard.general.clearContents()
+            NSPasteboard.general.setData(d, forType: .png)
+        }
     }
     
     /// Opens a screenshot in Preview.app
     /// - Parameter screenshot: Screenshot to open
     public func openScreenshot(_ screenshot: Screenshot) {
-        print("[-] UNFINISHED. Open in preview")
+        if let ssFile = screenshot.location {
+            NSWorkspace.shared.open(ssFile)
+        }
     }
     
     //MARK: Folder observation
@@ -179,7 +196,7 @@ class ScreenshotManager: ObservableObject {
         if contents.count > self.screenshots.count {
             // There's more screenshots... one was added!
             for path in contents {
-                if path.suffix(4) == ".png" && !self.screenshots.contains(where: { $0.name == String(path.prefix(path.count - 4))}) {
+                if path.prefix(1) != "." && path.suffix(4) == ".png" && !self.screenshots.contains(where: { $0.name == String(path.prefix(path.count - 4))}) {
                     var screenshot = Screenshot(name: String(path.prefix(path.count - 4)))
                     screenshot.location = URL(fileURLWithPath: path, relativeTo: self.screenshotFolderURL)
                     
@@ -191,6 +208,24 @@ class ScreenshotManager: ObservableObject {
                     DispatchQueue.main.async {
                         self.screenshots.append(screenshot)
                     }
+                    self.copyScreenshot(screenshot)
+                    PopupController.sendLocalNotification(withTitle: "Copied", body: "Screenshot copied to clipboard")
+                }
+            }
+        }
+        
+        if contents.count <= self.screenshots.count {
+            var ssCopy = self.screenshots
+            
+            for content in contents {
+                if let i = ssCopy.firstIndex(where: { $0.name ?? "" == content.prefix(content.count - 4)}) {
+                    ssCopy.remove(at: i)
+                }
+            }
+            
+            DispatchQueue.main.async {
+                withAnimation {
+                    self.screenshots = ssCopy
                 }
             }
         }

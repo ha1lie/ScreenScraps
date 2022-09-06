@@ -14,6 +14,11 @@
 		265744EE28A1D115000CE0F9 /* ScreenshotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265744ED28A1D115000CE0F9 /* ScreenshotManager.swift */; };
 		265744F028A1D446000CE0F9 /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265744EF28A1D446000CE0F9 /* Screenshot.swift */; };
 		265744F228A293DE000CE0F9 /* ScreenshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265744F128A293DE000CE0F9 /* ScreenshotView.swift */; };
+		265744FA28A3E0EC000CE0F9 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265744F928A3E0EC000CE0F9 /* PopupController.swift */; };
+		26B5C99028A723C900273510 /* ScreenScraps+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5C98F28A723C900273510 /* ScreenScraps+Color.swift */; };
+		26B5C99228A7281000273510 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5C99128A7281000273510 /* PopUpView.swift */; };
+		26B5C99428A7B6C300273510 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5C99328A7B6C300273510 /* SettingsView.swift */; };
+		26B5C99628A7B6EE00273510 /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5C99528A7B6EE00273510 /* PreferencesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +32,11 @@
 		265744ED28A1D115000CE0F9 /* ScreenshotManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotManager.swift; sourceTree = "<group>"; };
 		265744EF28A1D446000CE0F9 /* Screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
 		265744F128A293DE000CE0F9 /* ScreenshotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotView.swift; sourceTree = "<group>"; };
+		265744F928A3E0EC000CE0F9 /* PopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
+		26B5C98F28A723C900273510 /* ScreenScraps+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScreenScraps+Color.swift"; sourceTree = "<group>"; };
+		26B5C99128A7281000273510 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		26B5C99328A7B6C300273510 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		26B5C99528A7B6EE00273510 /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,10 +71,10 @@
 			children = (
 				265744EC28A1CFE1000CE0F9 /* Info.plist */,
 				265744DD28A1CB56000CE0F9 /* ScreenScrapsApp.swift */,
-				265744DF28A1CB56000CE0F9 /* ContentView.swift */,
-				265744F128A293DE000CE0F9 /* ScreenshotView.swift */,
 				265744EF28A1D446000CE0F9 /* Screenshot.swift */,
-				265744ED28A1D115000CE0F9 /* ScreenshotManager.swift */,
+				26B5C98E28A723AF00273510 /* Controller */,
+				26B5C98D28A7239900273510 /* Views */,
+				26B5C98F28A723C900273510 /* ScreenScraps+Color.swift */,
 				265744E128A1CB58000CE0F9 /* Assets.xcassets */,
 				265744E628A1CB58000CE0F9 /* ScreenScraps.entitlements */,
 				265744E328A1CB58000CE0F9 /* Preview Content */,
@@ -78,6 +88,27 @@
 				265744E428A1CB58000CE0F9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		26B5C98D28A7239900273510 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				265744DF28A1CB56000CE0F9 /* ContentView.swift */,
+				265744F128A293DE000CE0F9 /* ScreenshotView.swift */,
+				26B5C99128A7281000273510 /* PopUpView.swift */,
+				26B5C99328A7B6C300273510 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		26B5C98E28A723AF00273510 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				265744F928A3E0EC000CE0F9 /* PopupController.swift */,
+				26B5C99528A7B6EE00273510 /* PreferencesManager.swift */,
+				265744ED28A1D115000CE0F9 /* ScreenshotManager.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,8 +181,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				265744FA28A3E0EC000CE0F9 /* PopupController.swift in Sources */,
+				26B5C99028A723C900273510 /* ScreenScraps+Color.swift in Sources */,
 				265744F228A293DE000CE0F9 /* ScreenshotView.swift in Sources */,
+				26B5C99628A7B6EE00273510 /* PreferencesManager.swift in Sources */,
+				26B5C99228A7281000273510 /* PopUpView.swift in Sources */,
 				265744E028A1CB56000CE0F9 /* ContentView.swift in Sources */,
+				26B5C99428A7B6C300273510 /* SettingsView.swift in Sources */,
 				265744F028A1D446000CE0F9 /* Screenshot.swift in Sources */,
 				265744DE28A1CB56000CE0F9 /* ScreenScrapsApp.swift in Sources */,
 				265744EE28A1D115000CE0F9 /* ScreenshotManager.swift in Sources */,
